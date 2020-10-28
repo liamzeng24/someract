@@ -5,12 +5,28 @@ import seasonDisplay from "./seasonDisplay";
 
 
 class App extends React.Component {
-  render(){
+  constructor(props) {
+    super(props);
+    this.state = {lat: 50, errorMessage: ''};
     window.navigator.geolocation.getCurrentPosition(
-      (position) => console.log(position),
-      (err) => console.log(err)
+      (position) => {
+        this.setState({lat : position.coords.latitude});
+      },
+      (err) => 
+      {
+        this.setState({errorMessage: err.message});
+      }
     );
-    return <div>Latitude: </div>
+  }
+  render(){
+    return (
+      <div>
+        Latitude: {this.state.lat} 
+        <br/>
+        Error: {this.state.errorMessage}
+      </div>
+
+    ); 
   }
 };
 
