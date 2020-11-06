@@ -11,6 +11,7 @@ class SearchBar extends React.Component{
         console.log(this.state.term);
     }
 
+
     render(){
         return(
             <div style={{marginTop: '10px'}} className="ui segment container">
@@ -18,7 +19,7 @@ class SearchBar extends React.Component{
                     <div className='field'>
                         <label>image Search</label>
                         <input  type='text'
-                                value={this.state.term}
+                                value={this.state.term} 
                                 onChange={(e) => this.setState({term: e.target.value.toUpperCase()})}
                         />
                     </div>
