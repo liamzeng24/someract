@@ -16,7 +16,7 @@ class App extends React.Component {
         return (
         <div>
             <SearchBar onSubmit={this.onSearchSubmit} anotherpro="Ok just testing"/>
-            <ImageList image={this.state.image}/>
+            <ImageList images={this.state.image}/>
         </div>
         );
     };
