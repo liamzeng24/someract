@@ -15,7 +15,7 @@ class App extends React.Component {
     render(){
         return (
         <div>
-            <SearchBar onSubmit={this.onSearchSubmit} anotherpro="Ok just testing"/>
+            <SearchBar onSubmit={this.onSearchSubmit}/>
             <ImageList images={this.state.image}/>
         </div>
         );
