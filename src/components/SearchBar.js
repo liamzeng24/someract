@@ -1,32 +1,34 @@
+
 import React from 'react';
 
 class SearchBar extends React.Component{
-    state = { term: 'Hi there!' };
-    AttheInputChange(event){
-        console.log(event.target.value);
-    }
+    state={text: ""}
 
-    onFormSubmit = (event) => {
-        event.preventDefault();
-        this.props.onSubmit(this.state.term);
+    onInputChange = book => {
+        this.setState({text: book.target.value});
     };
 
+    Submitted = event => {
+        event.preventDefault();
+        this.props.onTermSubmit(this.state.text);
+        // Todo: Call the callback from parent and return the value; 
+    };
 
     render(){
-        return(
-            <div style={{marginTop: '10px'}} className="ui segment container">
-                <form onSubmit={this.onFormSubmit} className='ui form'>
-                    <div className='field'>
-                        <label>image Search</label>
-                        <input  type='text'
-                                value={this.state.term} 
-                                onChange={(e) => this.setState({term: e.target.value})}
-                        />
-                    </div>
-                </form>
-            </div>
-        );
+        return <div className="search-bar ui segment">
+                    <form className='ui form' onSubmit={this.Submitted}>
+                        <div className="field">
+                            <label>Video Search</label>
+                            <input 
+                                type='text' 
+                                placeholder="Please type in the video" 
+                                value={this.state.text}
+                                onChange={this.onInputChange}
+                            />
+                        </div>
+                    </form>
+               </div>
     }
-}
-// for today's update
+};
+
 export default SearchBar;
